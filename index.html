@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>熊野古道中边路 完全踏破 41章行程规划 | 2026.11.13-11.20 8天7晚最终版</title>
+<style>
+  :root{
+    --ink:#2b2b2b; --sub:#6b6b6b; --line:#e5e0d8; --bg:#faf8f4; --card:#ffffff;
+    --red:#b5432a; --gold:#b08d3e; --green:#5a7247; --blue:#3d5a73;
+    --chip:#f3efe7;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.75;font-size:15px;}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 80px;}
+  header.hero{background:linear-gradient(135deg,#2f4a3e 0%,#3d5a4a 55%,#6b5a3e 100%);
+       color:#f5f1e6;border-radius:16px;padding:38px 34px;margin-bottom:28px;}
+  .hero h1{font-size:26px;letter-spacing:1px;margin-bottom:6px;}
+  .hero p{opacity:.92;font-size:14px;}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+       border-radius:99px;padding:2px 12px;font-size:12px;margin-right:6px;margin-top:10px;}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0 8px;}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 10px;text-align:center;}
+  .stat b{display:block;font-size:22px;color:var(--red);}
+  .stat span{font-size:12px;color:var(--sub);}
+  h2{font-size:19px;margin:36px 0 14px;padding-left:12px;border-left:4px solid var(--red);letter-spacing:.5px;}
+  h3{font-size:15px;margin-bottom:6px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:14px;}
+  .day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px;}
+  .day-no{background:var(--red);color:#fff;border-radius:8px;padding:1px 10px;font-size:13px;font-weight:600;white-space:nowrap;}
+  .day-date{color:var(--sub);font-size:13px;}
+  .route{font-size:14px;margin:6px 0;}
+  .route b{color:var(--blue);}
+  .stamp-num{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--red);color:#fff;font-size:11px;font-weight:600;margin-right:2px;vertical-align:middle;}
+  .stamp-name{color:var(--red);font-weight:700;}
+  .tl{font-size:13.5px;margin:2px 0;line-height:1.8;}
+  .tl b{color:var(--red);}
+  .meta{font-size:12.5px;color:var(--sub);margin-top:6px;}
+  .note{background:#fdf6ea;border:1px solid #ecdfc3;border-radius:10px;padding:10px 14px;font-size:13px;margin-top:10px;color:#6a5530;}
+  .note.warn{background:#faeeee;border-color:#eccccc;color:#7a3b3b;}
+  .food{background:#f7f4ec;border:1px solid #e6ddc8;border-radius:10px;padding:10px 14px;margin-top:10px;font-size:13px;}
+  .food .fh{font-weight:700;color:var(--gold);margin-bottom:4px;font-size:13px;}
+  .food .fh2{font-weight:700;color:var(--ink);margin-top:7px;font-size:12.5px;}
+  .food .fp{padding:2px 0;line-height:1.7;color:#4a4a3a;}
+  .food .fp b{color:var(--red);}
+  .food .fn{margin-top:5px;color:#8a7d5f;font-size:12px;}
+  .food table{margin-top:7px;}
+  .food th{padding:5px 8px;font-size:12.5px;}
+  .food td{padding:4px 8px;font-size:12.5px;}
+  .transfer{background:#eef3f7;border:1px solid #d5e2ec;border-radius:10px;padding:10px 14px;margin-top:10px;font-size:13px;}
+  .transfer .th{font-weight:700;color:var(--blue);margin-bottom:4px;font-size:13px;}
+  .tp{display:flex;gap:8px;padding:2px 0;line-height:1.7;}
+  .tp .tm{color:var(--red);font-weight:600;min-width:74px;flex-shrink:0;font-size:12.5px;}
+  .tp .pt{flex:1;}
+  .tp .pt .up{color:#2b2b2b;}
+  .tp .pt .arw{color:#9aa6b0;margin:0 4px;}
+  .tp .pt .dn{color:var(--blue);font-weight:600;}
+  .tp .pt .rm{color:#7d8b96;font-size:12px;}
+  .transfer .tn{margin-top:6px;padding-top:5px;border-top:1px dashed #c9d8e4;color:#7d8b96;font-size:11.5px;}
+  .hotel{display:inline-block;background:#eef4ec;border:1px solid #d3e0cd;color:#3d5a3d;border-radius:8px;
+       padding:2px 10px;font-size:12.5px;margin-top:4px;}
+  .route-svg{width:100%;height:auto;display:block;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--card);}
+  th{background:#efe9dd;padding:8px 10px;text-align:left;font-weight:600;white-space:nowrap;}
+  td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;}
+  tr:nth-child(even) td{background:#fbf9f4;}
+  .ck-progress-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;}
+  .ck-bar{height:12px;background:#eee7db;border-radius:99px;overflow:hidden;margin:8px 0 4px;}
+  .ck-bar>div{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));width:0%;transition:width .3s;}
+  .ck-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:4px 18px;}
+  .ck-item{display:flex;align-items:center;gap:8px;padding:4px 2px;border-bottom:1px dashed #eee;font-size:13.5px;}
+  .ck-item input{width:16px;height:16px;accent-color:var(--red);flex-shrink:0;cursor:pointer;}
+  .ck-item label{cursor:pointer;flex:1;}
+  .ck-item .num{color:var(--sub);font-size:11.5px;min-width:26px;text-align:right;}
+  .ck-item.done label{color:#aaa;text-decoration:line-through;}
+  ol.flow{margin-left:20px;}
+  ol.flow li{margin-bottom:8px;}
+  ul.plain{margin-left:18px;}
+  ul.plain li{margin-bottom:5px;}
+  footer{margin-top:40px;font-size:12px;color:var(--sub);border-top:1px solid var(--line);padding-top:14px;}
+  html{scroll-behavior:smooth;}
+  .nav{position:sticky;top:0;z-index:60;background:rgba(250,248,244,.95);backdrop-filter:saturate(160%) blur(8px);
+       border-bottom:1px solid var(--line);margin:0 -20px 22px;padding:0 12px;}
+  .nav-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;gap:3px;overflow-x:auto;
+       padding:8px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+  .nav-inner::-webkit-scrollbar{display:none;}
+  .nav a{flex-shrink:0;font-size:12.5px;color:var(--sub);text-decoration:none;padding:4px 10px;
+       border-radius:99px;white-space:nowrap;transition:background .15s,color .15s;}
+  .nav a:hover{background:var(--chip);color:var(--ink);}
+  .nav a.active{background:var(--red);color:#fff;font-weight:600;}
+  .nav a.day{font-weight:600;color:var(--blue);}
+  .nav a.day.active{background:var(--blue);color:#fff;}
+  .nav-sep{flex-shrink:0;width:1px;height:14px;background:var(--line);margin:0 6px;}
+  h2,.card{scroll-margin-top:66px;}
+  .totop{position:fixed;right:18px;bottom:22px;z-index:60;width:40px;height:40px;border-radius:50%;
+       background:var(--red);color:#fff;border:none;font-size:17px;cursor:pointer;opacity:0;pointer-events:none;
+       transition:opacity .2s;box-shadow:0 3px 12px rgba(0,0,0,.18);}
+  .totop.show{opacity:.92;pointer-events:auto;}
+  @media(max-width:640px){.nav a{font-size:12px;padding:4px 8px;}}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}.hero{padding:26px 20px;}}
+  @media print{body{background:#fff;}.card,.ck-progress-wrap{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav class="nav" id="topnav">
+  <div class="nav-inner">
+    <a href="#sec-1">行程目标</a>
+    <a href="#sec-2">路线示意</a>
+    <a href="#sec-3">逐日行程</a>
+    <span class="nav-sep"></span>
+    <a class="day" href="#day-D1">D1</a>
+    <a class="day" href="#day-D2">D2</a>
+    <a class="day" href="#day-D3">D3</a>
+    <a class="day" href="#day-D4">D4</a>
+    <a class="day" href="#day-D5">D5</a>
+    <a class="day" href="#day-D6">D6</a>
+    <a class="day" href="#day-D7">D7</a>
+    <a class="day" href="#day-D8">D8</a>
+    <span class="nav-sep"></span>
+    <a href="#sec-4">41章清单</a>
+    <a href="#sec-5">领证流程</a>
+    <a href="#sec-6">接送点总表</a>
+    <a href="#sec-7">实用备忘</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>熊野古道 中边路 完全踏破 · 41章制霸计划（8天7晚·最终版）</h1>
+  <p>2026年11月13日（周五）关西机场接机出发 · 11月20日（周五）送机 · 大阪往返 · 全程包车 · 红叶季黄金窗口</p>
+  <div>
+    <span class="tag">熊野三山参拜</span><span class="tag">世界遗产朝圣道</span><span class="tag">目标：完步证明 + 完全踏破证明书 + 金贝壳</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><b>41</b><span>押印所（盖章点）</span></div>
+  <div class="stat"><b>约86km</b><span>主徒步段里程</span></div>
+  <div class="stat"><b>8天7晚</b><span>11.13 – 11.20</span></div>
+  <div class="stat"><b>6徒步日</b><span>红叶季·气温10–17°C</span></div>
+</div>
+
+<h2 id="sec-1">一、这次要拿到什么</h2>
+<div class="card">
+  <ol class="flow">
+    <li><b>押印帐（熊野古道中边路押印帐，¥100）</b>：全程盖满 <b>41 个章</b>。这是核心任务，所有日程都围绕它展开。<b>本计划于 D2 早上在熊野古道馆（泷尻）购买</b>，买完直接开始当天徒步，不耽误。</li>
+    <li><b>完步证明</b>：盖满41章后，把押印帐送到四个认证窗口之一（熊野古道馆·泷尻 / 熊野本宫馆 / 新宫观光案内所 / 那智胜浦观光案内所），工作人员逐章核验后，在押印帐末页盖上「完步证明」章。</li>
+    <li><b>熊野古道中边路完全踏破证明书</b>：由和歌山县免费颁发（窗口当场或邮寄核验发放）。</li>
+    <li><b>中边路踏破 金贝壳（金の貝殻）</b>：凭踏破完成的押印帐购买，<b>¥2,750</b>（完全踏破限定款，数量有限，以现场库存为准）。</li>
+  </ol>
+  <div class="note">冷知识：41章中有3章（稲葉根王子・北郡越・潮見峠）原属纪伊路，2022年11月才并入中边路押印帐——所以老攻略里"36章"的说法已过时。它们位于田边一侧，正好安排在 D2 收下。</div>
+</div>
+
+<h2 id="sec-2">二、全程路线示意图</h2>
+<div class="card">
+<svg class="route-svg" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, sans-serif">
+  <!-- terrain hint -->
+  <path d="M0,230 Q120,150 250,200 T500,180 T740,140 T900,170" fill="none" stroke="#dfe7db" stroke-width="26" stroke-linecap="round"/>
+  <path d="M0,230 Q120,150 250,200 T500,180 T740,140 T900,170" fill="none" stroke="#c9d6c2" stroke-width="2" stroke-dasharray="1 6" stroke-linecap="round"/>
+  <!-- main trail -->
+  <path d="M40,240 C120,210 170,120 260,110 C350,100 380,170 470,175 C540,178 560,120 640,118 C700,116 720,170 790,185 C840,196 860,210 880,215"
+        fill="none" stroke="#b5432a" stroke-width="4" stroke-linecap="round"/>
+  <!-- key points -->
+  <circle cx="40" cy="240" r="7" fill="#5a7247"/>
+  <circle cx="170" cy="140" r="6" fill="#fff" stroke="#b5432a" stroke-width="3"/>
+  <circle cx="260" cy="110" r="6" fill="#fff" stroke="#b5432a" stroke-width="3"/>
+  <circle cx="470" cy="175" r="7" fill="#3d5a73"/>
+  <circle cx="600" cy="128" r="6" fill="#fff" stroke="#b5432a" stroke-width="3"/>
+  <circle cx="720" cy="150" r="6" fill="#fff" stroke="#b5432a" stroke-width="3"/>
+  <circle cx="880" cy="215" r="7" fill="#b08d3e"/>
+  <!-- labels -->
+  <text x="40" y="268" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="600">田边·白浜</text>
+  <text x="170" y="122" font-size="12" fill="#2b2b2b" text-anchor="middle">潮見峠·滝尻</text>
+  <text x="262" y="96" font-size="12" fill="#2b2b2b" text-anchor="middle">近露</text>
+  <text x="470" y="200" font-size="13" fill="#2b2b2b" text-anchor="middle" font-weight="600">本宫·渡瀬</text>
+  <text x="612" y="112" font-size="12" fill="#2b2b2b" text-anchor="middle">新宫·速玉</text>
+  <text x="726" y="135" font-size="12" fill="#2b2b2b" text-anchor="middle">那智·勝浦</text>
+  <text x="872" y="240" font-size="12" fill="#2b2b2b" text-anchor="end">三轮崎</text>
+  <!-- day markers -->
+  <g font-size="11.5" fill="#6b6b6b">
+    <text x="100" y="286" text-anchor="middle">D2 章1–3</text>
+    <text x="215" y="286" text-anchor="middle">D3 章4–11</text>
+    <text x="365" y="286" text-anchor="middle">D4 章12–22</text>
+    <text x="535" y="286" text-anchor="middle">D5 章23–27·31</text>
+    <text x="665" y="286" text-anchor="middle">D6 章32–39</text>
+    <text x="795" y="286" text-anchor="middle">D7 章28–30·40–41</text>
+  </g>
+  <!-- sea -->
+  <path d="M740,260 Q800,250 900,258 L900,272 L700,272 Q720,265 740,260" fill="#dce8ef"/>
+  <text x="820" y="268" font-size="11" fill="#6b8494" text-anchor="middle">熊野滩</text>
+</svg>
+  <div class="meta">方向采用经典西→东：田边/白浜→本宫→渡瀬（小云取越）→小口（大云取越）→那智→胜浦→新宫→三輪崎起反穿高野坂、于高野坂登り口收官，与古代熊野参拜主流方向一致；全程包车点对点接驳，行李随车。</div>
+</div>
+
+<h2 id="sec-3">三、逐日行程（2026.11.13 – 11.20 · 8天7晚）</h2>
+
+<div class="card" id="day-D1">
+  <div class="day-head"><span class="day-no">D1</span><h3>11月13日（周五）· 关西机场接机 → 纪伊田边（白浜）</h3><span class="day-date">当日无行程</span></div>
+  <div class="route">大阪关西机场（KIX）→ <b>包车</b>（经阪和自动车道，约2.5–3h）→ 白浜温泉酒店</div>
+  <div class="tl"><b>全天</b>：接机后直达酒店，当日无行程，养精蓄锐。</div>
+  <div class="meta">押印帐<b>不</b>在今晚买——按最终版安排在 D2 早上熊野古道馆购买。今晚任务：与包车司机确认 D2 对接安排（08:30 出发、鍛冶屋川口下车点、北郡越→稲葉根接驳点），大件行李留在车上。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">航班抵达</span><span class="pt"><span class="up">关西机场 KIX 到达大厅</span><span class="arw">→</span><span class="dn">—</span>　<span class="rm">以实际航班为准，航班变动请提前联系司机</span></span></div>
+  <div class="tp"><span class="tm">接机后</span><span class="pt"><span class="up">关西机场 KIX</span><span class="arw">→</span><span class="dn">紀州・白浜温泉 むさし</span>　<span class="rm">经阪和自动车道，约2.5–3h</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：紀州・白浜温泉 むさし（白浜温泉）</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（为 D2 准备）</div>
+    <div class="fp">D2 午餐便当：推荐在酒店附近便利店自行购买 —— <b>Lawson Shirahama store（ローソン 白浜町白浜店）</b>。潮見峠段沿途无商店，前一晚务必买好。</div>
+  </div>
+  <div class="note">白浜离田边市区约30分钟车程，酒店有温泉可先泡汤放松；顺带向酒店前台确认次日早餐时间，徒步日要吃饱。</div>
+</div>
+
+<div class="card" id="day-D2">
+  <div class="day-head"><span class="day-no">D2</span><h3>11月14日（周六）· 熊野古道馆买押印帐 + 旧纪伊路三章：潮見峠・北郡越・稲葉根</h3><span class="day-date">徒步约13km · 徒步3–4h · 3章</span></div>
+  <div class="route">白浜 → <b>熊野古道馆（泷尻）</b> → 鍛冶屋川口 → <span class="stamp-num">3</span><span class="stamp-name">潮見峠</span> → 清姬墓 → <span class="stamp-num">2</span><span class="stamp-name">北郡越</span> → 包车 → <span class="stamp-num">1</span><span class="stamp-name">稲葉根王子</span> → 白浜</div>
+  <div class="tl"><b>08:30–09:30</b> 酒店乘车 → 熊野古道馆（<b>购买押印帐 ¥100</b>，参观约60分钟）</div>
+  <div class="tl"><b>09:35–11:00</b> 乘车至鍛冶屋川口 → 徒步上潮見峠（约4.5km，约1.5h）</div>
+  <div class="tl"><b>12:30–14:30</b> 潮見峠 → 经清姬墓 → 北郡越（约8.5km，约2h）</div>
+  <div class="tl"><b>15:00–15:20</b> 北郡越乘车 → 稲葉根王子（当日最后一章）</div>
+  <div class="tl"><b>16:00–17:00</b> 行程结束，乘车返回酒店</div>
+    <div class="meta">住宿：白浜温泉 むさし（连住两晚）。下午回到酒店后自由活动，可去白浜海滩或泡温泉，19:00 前晚餐。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">08:30</span><span class="pt"><span class="up">紀州・白浜温泉 むさし</span><span class="arw">→</span><span class="dn">熊野古道馆（泷尻）</span>　<span class="rm">购买押印帐 ¥100 + 参观约60min</span></span></div>
+  <div class="tp"><span class="tm">09:35</span><span class="pt"><span class="up">熊野古道馆</span><span class="arw">→</span><span class="dn">鍛冶屋川口</span>　<span class="rm">当日徒步起点，司机可离开</span></span></div>
+  <div class="tp"><span class="tm">15:00</span><span class="pt"><span class="up">北郡越（徒步终点）</span><span class="arw">→</span><span class="dn">稲葉根王子</span>　<span class="rm">须提前约定，山路窄、无明确站牌</span></span></div>
+  <div class="tp"><span class="tm">16:00</span><span class="pt"><span class="up">稲葉根王子</span><span class="arw">→</span><span class="dn">紀州・白浜温泉 むさし</span>　<span class="rm">返回酒店，连住第二晚</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：紀州・白浜温泉 むさし（白浜温泉·连住）</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（为 D3 准备）</div>
+    <div class="fp">D3 午餐便当：推荐在酒店附近便利店自行购买 —— <b>Lawson Shirahama store（ローソン 白浜町白浜店）</b>。滝尻—近露段仅高原一带有自动贩卖机，务必在前一晚备足饮水与行动粮。</div>
+  </div>
+  <div class="note warn">潮見峠为原纪伊路段，11月日落约16:50，务必08:30准时出发。本日走法为「鍛冶屋川口上山→潮見峠→北郡越下山」单向环线，不折返；稲葉根王子靠包车接驳收章。中午无餐厅，备好行动粮和水。</div>
+</div>
+
+<div class="card" id="day-D3">
+  <div class="day-head"><span class="day-no">D3</span><h3>11月15日（周日）· 中边路开幕：滝尻王子 → 近露王子</h3><span class="day-date">徒步约18km · 徒步7–8h · 8章</span></div>
+  <div class="route">白浜 → 包车约40min → <b>滝尻·熊野古道馆</b>开始徒步 → <span class="stamp-num">4</span><span class="stamp-name">滝尻王子</span> → <span class="stamp-num">5</span><span class="stamp-name">不寝王子</span> → <span class="stamp-num">6</span><span class="stamp-name">高原熊野神社</span> → <span class="stamp-num">7</span><span class="stamp-name">大門王子</span> → <span class="stamp-num">8</span><span class="stamp-name">十丈王子</span> → <span class="stamp-num">9</span><span class="stamp-name">大坂本王子</span> → <span class="stamp-num">10</span><span class="stamp-name">牛馬童子</span> → <span class="stamp-num">11</span><span class="stamp-name">近露王子</span> → 宿近露</div>
+  <div class="tl"><b>08:30–09:30</b> 酒店乘车 → 滝尻王子，开始徒步</div>
+  <div class="tl"><b>09:30–11:00</b> 滝尻王子 → 不寝王子 → 高原熊野神社（约4km，约1.5h）</div>
+  <div class="tl"><b>12:00–18:00</b> 高原熊野神社 → 大門王子 → 十丈王子 → 大坂本王子 → 牛馬童子 → 近露王子（约14km，约6h）</div>
+  <div class="tl"><b>18:00–18:30</b> 当日行程结束，乘车/步行前往酒店</div>
+    <div class="meta">住宿：近露王子周边山庄。行李交给司机直送近露酒店，轻装上路（包车模式下大件行李随车）。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">08:30</span><span class="pt"><span class="up">紀州・白浜温泉 むさし</span><span class="arw">→</span><span class="dn">滝尻·熊野古道馆</span>　<span class="rm">当日徒步起点；大件行李随车直送近露</span></span></div>
+  <div class="tp"><span class="tm">18:00</span><span class="pt"><span class="up">近露王子（徒步终点）</span><span class="arw">→</span><span class="dn">SEN.RETREAT CHIKATSUYU</span>　<span class="rm">步行可到则免车，提前告知司机</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：SEN.RETREAT CHIKATSUYU（近露）</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（为 D4 准备）</div>
+    <div class="fp">D4 午餐便当可选（近露—本宫沿途便利店极少，<b>建议提前准备</b>）：</div>
+    <div class="fp">① 在 SEN.RETREAT CHIKATSUYU 附近的 <b>Ａコープ 熊野古道ちかつゆ店</b> 提前购入（店铺 <b>18:00 关门</b>，注意当天抵达时间）。</div>
+    <div class="fp">② 在酒店附近的餐馆 <b>箸折茶屋 浦タエ子さん</b> 提前预定次日午餐便当，当天下午由餐厅老板送进酒店冰箱内，<b>¥1,500/人</b>。</div>
+    <div class="fp">便当菜单示例（内容可能因季节而异）：鮎の塩焼き／ごんぱち（イタドリ）・タケノコ・蕨・海老の煮物／野菜の肉巻き／ポテトサラダ。</div>
+  </div>
+  <div class="note">本日是全程海拔爬升最大的路段之一（鞣淵峠、高原熊野神社前的大上坡），09:30准时开走，控制节奏；近露有商店可补给午餐。</div>
+</div>
+
+<div class="card" id="day-D4">
+  <div class="day-head"><span class="day-no">D4</span><h3>11月16日（周一）· 近露 → 発心門 → 熊野本宮大社 → 大斎原 → 渡瀬温泉</h3><span class="day-date">徒步约21km · 徒步8–9h · 11章</span></div>
+  <div class="route">近露 → <span class="stamp-num">12</span><span class="stamp-name">継桜王子</span> → <span class="stamp-num">13</span><span class="stamp-name">秀衡桜</span> → <span class="stamp-num">14</span><span class="stamp-name">蛇形地蔵</span> → <span class="stamp-num">15</span><span class="stamp-name">湯川王子</span> → <span class="stamp-num">16</span><span class="stamp-name">猪鼻王子</span> → <span class="stamp-num">17</span><span class="stamp-name">発心門王子</span> → <span class="stamp-num">18</span><span class="stamp-name">水呑王子</span> → <span class="stamp-num">19</span><span class="stamp-name">伏拝王子</span> → <span class="stamp-num">20</span><span class="stamp-name">祓殿王子</span> → <span class="stamp-num">21</span><span class="stamp-name">熊野本宮大社</span> → 步行10min → <span class="stamp-num">22</span><span class="stamp-name">旧社地大斎原</span> → 包车 → 渡瀬温泉</div>
+  <div class="tl"><b>07:00–07:10</b> 酒店乘车 → 継桜王子，开始徒步</div>
+  <div class="tl"><b>07:10–13:30</b> 継桜王子 → 発心門王子（约14km，约6h）</div>
+  <div class="tl"><b>14:30–17:00</b> 発心門王子 → 熊野本宮大社 → 旧社地大斎原（约7km，约3h）</div>
+  <div class="tl"><b>17:30–18:00</b> 当日行程结束，乘车前往渡瀬温泉酒店</div>
+    <div class="meta">住宿：渡瀬温泉（本宫东南方向，熊野川支流沿线的温泉乡）。大件行李由司机从近露直送渡瀬温泉。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">07:00</span><span class="pt"><span class="up">SEN.RETREAT CHIKATSUYU</span><span class="arw">→</span><span class="dn">継桜王子</span>　<span class="rm">当日徒步起点，全程最长日</span></span></div>
+  <div class="tp"><span class="tm">17:30</span><span class="pt"><span class="up">旧社地大斎原（本宫大社旁停车场）</span><span class="arw">→</span><span class="dn">渡瀬温泉 ホテルささゆり</span>　<span class="rm">行李由司机从近露直送</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：渡瀬温泉 湯巡りの宿 わたらせ温泉 ホテルささゆり</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（为 D5 准备）</div>
+    <div class="fp">D5 午餐便当可选（渡瀬—請川—小口沿途便利店极少，<b>建议提前预定</b>）：推荐在渡瀬温泉酒店附近的 <b>大村屋便当</b> 提前预定，<b>可送货上门（5 份起送）</b>，可约定 <b>7:30 左右送至渡瀬温泉酒店</b>。餐盒可选：</div>
+    <table>
+      <tr><th style="width:10%">编号</th><th>内容</th><th style="width:18%">价格</th></tr>
+      <tr><td>A1</td><td>熊野古道弁当</td><td>¥1,300</td></tr>
+      <tr><td>A2</td><td>熊野古道弁当 + お茶</td><td>¥1,400</td></tr>
+      <tr><td>A3</td><td>熊野古道弁当 + 冷凍お茶</td><td>¥1,500</td></tr>
+      <tr><td>B1</td><td>熊野精進弁当（双层素食便当）</td><td>¥2,000</td></tr>
+      <tr><td>B2</td><td>熊野精進弁当（双层素食便当）+ お茶</td><td>¥2,100</td></tr>
+      <tr><td>B3</td><td>熊野精進弁当（双层素食便当）+ 冷凍お茶</td><td>¥2,200</td></tr>
+      <tr><td>C1</td><td>三明治水果便当</td><td>¥2,000</td></tr>
+      <tr><td>C2</td><td>三明治水果便当 + お茶</td><td>¥2,100</td></tr>
+      <tr><td>C3</td><td>三明治水果便当 + 冷凍お茶</td><td>¥2,200</td></tr>
+      <tr><td>D1</td><td>熊タカ丼弁当</td><td>¥1,300</td></tr>
+      <tr><td>D2</td><td>熊タカ丼弁当 + お茶</td><td>¥1,400</td></tr>
+      <tr><td>D3</td><td>熊タカ丼弁当 + 冷凍お茶</td><td>¥1,500</td></tr>
+      <tr><td>E1</td><td>素食便当</td><td>¥1,300</td></tr>
+      <tr><td>E2</td><td>素食便当 + お茶</td><td>¥1,400</td></tr>
+      <tr><td>E3</td><td>素食便当 + 冷凍お茶</td><td>¥1,500</td></tr>
+    </table>
+  </div>
+  <div class="note warn">⚠ 本宫大社押印所营业时间有限，<b>若当天17:00后抵达则无法押章</b>——按最终版预案，可第二天乘车前来补盖本宫大社、大斎原。本日为全程最长日，07:00务必准时出发；大斎原紧挨本宫大社，步行10分钟必盖。</div>
+</div>
+
+<div class="card" id="day-D5">
+  <div class="day-head"><span class="day-no">D5</span><h3>11月17日（周二）· 湯峯王子 + 小雲取越（請川→小口）+ 川の古道</h3><span class="day-date">小云取越徒步约14km · 徒步约6h · 6章</span></div>
+  <div class="route">渡瀬温泉 → 湯峯温泉 → <span class="stamp-num">23</span><span class="stamp-name">湯峯王子</span> → <span class="stamp-num">24</span><span class="stamp-name">請川</span> → 小雲取越（请川→小口）→ <span class="stamp-num">25</span><span class="stamp-name">石堂茶屋跡</span> → 百間ぐら → <span class="stamp-num">26</span><span class="stamp-name">小和瀬渡し場跡</span> → <span class="stamp-num">31</span><span class="stamp-name">小口</span> → 道の駅熊野川 → <span class="stamp-num">27</span><span class="stamp-name">川の熊野古道</span> → 宿日足</div>
+  <div class="tl"><b>08:00–08:10</b> 酒店乘车 → 湯峯温泉（盖章）</div>
+  <div class="tl"><b>08:40–09:00</b> 湯峯乘车 → 請川押印所（盖章），开始徒步</div>
+  <div class="tl"><b>09:00–15:00</b> 請川 → 石堂茶屋跡 → 百間ぐら → 小和瀬渡し場跡 → 小口（约14km，4.5–6h）</div>
+  <div class="tl"><b>15:30–16:00</b> 小口乘车 → 道の駅熊野川（盖章）</div>
+  <div class="tl"><b>17:00–17:30</b> 当日行程结束，乘车前往酒店</div>
+    <div class="meta">住宿：日足/小口地区公寓酒店——离小口登山口近，D6 早上可直接乘车回到小口开走大云取越。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">08:00</span><span class="pt"><span class="up">渡瀬温泉 ホテルささゆり</span><span class="arw">→</span><span class="dn">湯峯温泉（湯峯王子）</span>　<span class="rm">盖章，约10min</span></span></div>
+  <div class="tp"><span class="tm">08:40</span><span class="pt"><span class="up">湯峯温泉</span><span class="arw">→</span><span class="dn">請川（小云取越登山口）</span>　<span class="rm">当日徒步起点</span></span></div>
+  <div class="tp"><span class="tm">15:00</span><span class="pt"><span class="up">小口（小云取越终点）</span><span class="arw">→</span><span class="dn">道の駅熊野川</span>　<span class="rm">川の古道押印所17:00关门，务必赶上</span></span></div>
+  <div class="tp"><span class="tm">16:30</span><span class="pt"><span class="up">道の駅熊野川</span><span class="arw">→</span><span class="dn">Satsuki Apartment（日足）</span>　<span class="rm">入住，次日近小口登山口</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：Satsuki Apartment Hotel - Koguchi Area（日足·小口地区）</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（当日晚餐 + 为 D6 准备）</div>
+    <div class="fh2">一、当日酒店不含晚餐套餐</div>
+    <div class="fp">① 酒店可提供晚餐选择：</div>
+    <div class="fp">・包含白米饭和即食餐，<b>¥800/份</b>。提供素食选择，但种类有限。</div>
+    <div class="fp">・除袋装食品外，还提供竹蒸笼蒸制的菜肴，<b>¥2,000/份</b>。</div>
+    <div class="fp">② 道の駅熊野川盖章结束后可前往沿途餐厅就餐，餐厅可选较少：</div>
+    <div class="fp">・<b>レストラン 熊野川</b>（09:00–17:00）</div>
+    <div class="fp">・<b>かあちゃんの店</b>（09:00–16:00，<b>周三定休</b>）</div>
+    <div class="fh2">二、D6 午餐可选</div>
+    <div class="fp">① 携带酒店早餐作为午餐（白面包、草莓酱和黄油、格兰诺拉麦片、切片奶酪、火腿、酸奶、牛奶、橙汁、滴滤咖啡、伯爵茶、绿茶）。</div>
+    <div class="fp">② D6 一早前往小口时，在小口附近的 <b>「南方商店」</b> 购买食物和水源补给。大雲取越的唯一补给点在 <b>地藏茶屋跡</b>，可能出现售罄情况，建议提前准备。</div>
+    <div class="fn">注：过了地藏茶屋跡，那智山商店、餐厅较多，可适当补给。</div>
+  </div>
+  <div class="note warn">⚠ 川の古道押印所在道の駅熊野川游客中心内，<b>若17:00后抵达则无法押章</b>——按最终版预案，可第二天乘车前来补盖川の古道。小云取越沿途无餐厅，备好行动粮和水；前半程桜峠爬升约350m，請川到桜茶屋跡段最陡，控制好节奏。</div>
+</div>
+
+<div class="card" id="day-D6">
+  <div class="day-head"><span class="day-no">D6</span><h3>11月18日（周三）· 大雲取越 + 那智三寺社 + 大門坂 + 勝浦扫章</h3><span class="day-date">徒步约14km · 徒步6–7h · 8章</span></div>
+  <div class="route">日足 → 小口登山口 → <b>大雲取越</b> → <span class="stamp-num">32</span><span class="stamp-name">地蔵茶屋跡</span> → 那智高原公園 → 那智山 <span class="stamp-num">34</span><span class="stamp-name">熊野那智大社</span>・<span class="stamp-num">35</span><span class="stamp-name">青岸渡寺</span>・<span class="stamp-num">36</span><span class="stamp-name">飛瀧神社</span> → 大門坂 <span class="stamp-num">37</span><span class="stamp-name">多富気王子</span> → 包车 → <span class="stamp-num">38</span><span class="stamp-name">市野々王子</span> → 勝浦 <span class="stamp-num">39</span><span class="stamp-name">補陀洛山寺</span>・<span class="stamp-num">40</span><span class="stamp-name">浜の宮王子</span> → 宿勝浦</div>
+  <div class="tl"><b>08:00–08:30</b> 酒店乘车 → 小口登山口</div>
+  <div class="tl"><b>08:30–11:30</b> 小口 → 地蔵茶屋跡（约4km，约3h）</div>
+  <div class="tl"><b>12:30–16:30</b> 地蔵茶屋跡 → 那智高原公園 → 那智山三寺社（青岸渡寺・熊野那智大社・飛瀧神社）（约10km，下坡公路为主，3–4h）</div>
+  <div class="tl"><b>16:30–17:30</b> 那智山下山沿路收章 → 大門坂（盖章）</div>
+  <div class="tl"><b>17:30–17:40</b> 大門坂乘车 → 市野々王子</div>
+  <div class="tl"><b>17:40–18:00</b> 乘车 → 胜浦方向（盖章）</div>
+  <div class="tl"><b>18:00–18:30</b> 当日行程结束，前往酒店</div>
+    <div class="meta">住宿：那智胜浦温泉（海滨温泉酒店）。晚上吃金枪鱼、泡温泉犒劳自己。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">08:00</span><span class="pt"><span class="up">Satsuki Apartment（日足）</span><span class="arw">→</span><span class="dn">小口登山口</span>　<span class="rm">大云取越起点，务必08:30前开走</span></span></div>
+  <div class="tp"><span class="tm">16:30</span><span class="pt"><span class="up">那智山（青岸渡寺前停车场）</span><span class="arw">→</span><span class="dn">大門坂（多富気王子）</span>　<span class="rm">下山后乘车，沿路盖章</span></span></div>
+  <div class="tp"><span class="tm">17:30</span><span class="pt"><span class="up">大門坂</span><span class="arw">→</span><span class="dn">市野々王子</span>　<span class="rm">盖章</span></span></div>
+  <div class="tp"><span class="tm">17:50</span><span class="pt"><span class="up">市野々王子</span><span class="arw">→</span><span class="dn">勝浦 補陀洛山寺・浜の宮王子</span>　<span class="rm">两章24h可盖</span></span></div>
+  <div class="tp"><span class="tm">18:30</span><span class="pt"><span class="up">勝浦</span><span class="arw">→</span><span class="dn">ホテル浦島</span>　<span class="rm">入住（酒店需乘船/接驳，以酒店安排为准）</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：那智胜浦 南紀勝浦温泉 ホテル浦島</div>
+  <div class="food">
+    <div class="fh">🍱 午餐与补给（为 D7 准备）</div>
+    <div class="fp">D7 午餐：当天行程较为轻松，沿路补给较多，可在高野坂结束行程后<b>往新宫方向就餐，选择较多</b>。</div>
+  </div>
+  <div class="note warn">大云取越是中边路最险段，11月中旬山脊风大温低，务必08:30前从小口开走；雨后湿滑更需谨慎，登山杖救命。那智山到大门坂以下坡公路为主，三寺社集中收章效率高；勝浦市区两章24h可盖，傍晚补完不误事。</div>
+</div>
+
+<div class="card" id="day-D7">
+  <div class="day-head"><span class="day-no">D7</span><h3>11月19日（周四）· 小狗子峠 + 反穿高野坂 + 新宫三社 + 领证收官 🎉</h3><span class="day-date">徒步约2km · 徒步1–2h · 5章</span></div>
+  <div class="route">勝浦 → <span class="stamp-num">40</span><span class="stamp-name">小狗子峠</span> → 乘车 → 三輪崎（反穿起点）→ 翻越高野坂 → <span class="stamp-num">41</span><span class="stamp-name">高野坂登り口</span>（反穿终点）→ 乘车 → 新宫 → <span class="stamp-num">28</span><span class="stamp-name">阿須賀神社</span> → <span class="stamp-num">29</span><span class="stamp-name">熊野速玉大社</span> → <span class="stamp-num">30</span><span class="stamp-name">神倉神社</span> → <b>新宮市観光協会核验领证</b> → 白浜</div>
+  <div class="tl"><b>08:00–08:30</b> 酒店乘车 → 小狗子峠（盖章）</div>
+  <div class="tl"><b>08:30–09:00</b> 小狗子峠乘车 → 三輪崎，开始反穿翻越高野坂</div>
+  <div class="tl"><b>09:30–11:30</b> 三輪崎 → 高野坂（约2km，徒步时长约1–2h，山海相伴的一段路，可沿路欣赏美景）</div>
+  <div class="tl"><b>13:30–14:00</b> 高野坂押印所乘车 → 新宫阿須賀神社</div>
+  <div class="tl"><b>14:00–15:00</b> 阿須賀神社 → 熊野速玉大社 → 神倉神社（约3.6km，约1h）</div>
+  <div class="tl"><b>15:00–15:10</b> 乘车 → <b>新宮市観光協会</b>（核验41章、领证、购买金贝壳）</div>
+  <div class="tl"><b>16:00–18:30</b> 当日行程结束，乘车返回白浜酒店</div>
+    <div class="meta">第41章达成！到<b>新宮市観光協会</b>（新宫站前，注意17:00前到）逐章核验，当场领<b>完步证明</b>、申请<b>完全踏破证明书</b>、购买<b>金贝壳（¥2,750）</b>。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">08:00</span><span class="pt"><span class="up">ホテル浦島</span><span class="arw">→</span><span class="dn">小狗子峠</span>　<span class="rm">胜浦港方向，乘车抵点即盖</span></span></div>
+  <div class="tp"><span class="tm">08:30</span><span class="pt"><span class="up">小狗子峠</span><span class="arw">→</span><span class="dn">三輪崎</span>　<span class="rm">反穿高野坂起点</span></span></div>
+  <div class="tp"><span class="tm">13:30</span><span class="pt"><span class="up">高野坂登り口（反穿终点）</span><span class="arw">→</span><span class="dn">阿須賀神社</span>　<span class="rm">午饭后开始新宫三社扫章</span></span></div>
+  <div class="tp"><span class="tm">15:10</span><span class="pt"><span class="up">神倉神社</span><span class="arw">→</span><span class="dn">新宮市観光協会</span>　<span class="rm">核验41章、领证、买金贝壳（17:00前）</span></span></div>
+  <div class="tp"><span class="tm">16:00</span><span class="pt"><span class="up">新宮市観光協会</span><span class="arw">→</span><span class="dn">白浜温泉 紀州半島</span>　<span class="rm">约2.5h，行程收官</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="hotel">🏨 宿：白浜温泉 紀州半島（田边/白浜）</div>
+  <div class="note">核验是逐页逐名称进行的，错章漏章当场打回。每天收章后手机拍照备份每一页；核验前自己先按押印帐目录核对一遍41章。新宫三社中神倉神社需爬一小段石阶（山脚章位在屋檐下，不必登顶）。小狗子峠章在胜浦港方向，乘车抵点即盖，不占徒步时间。</div>
+</div>
+
+<div class="card" id="day-D8">
+  <div class="day-head"><span class="day-no">D8</span><h3>11月20日（周五）· 自由活动 + 送机关西国际机场</h3><span class="day-date">包车约2.5–3h</span></div>
+  <div class="route">白浜 → 自由活动 → <b>包车</b> → 大阪关西机场（KIX）</div>
+  <div class="tl"><b>上午</b>：自由活动——推荐白浜海岸线：<b>千叠敷</b>（岩壁层叠的海蚀台地）、<b>三段壁洞窟</b>（海蚀洞）、<b>圆月岛</b>（海蚀圆洞）等，均在酒店附近，视天气与航班时间取舍。</div>
+  <div class="tl"><b>按航班时间</b>：包车送关西国际机场（约2.5–3h），结束行程。</div>
+  <div class="transfer">
+    <div class="th">🚐 乘车衔接（司机接送点）</div>
+  <div class="tp"><span class="tm">上午</span><span class="pt"><span class="up">白浜温泉 紀州半島</span><span class="arw">→</span><span class="dn">千叠敷・三段壁・圆月岛</span>　<span class="rm">自由活动，视天气与航班取舍</span></span></div>
+  <div class="tp"><span class="tm">按航班</span><span class="pt"><span class="up">白浜温泉 紀州半島</span><span class="arw">→</span><span class="dn">关西机场 KIX</span>　<span class="rm">约2.5–3h，国际航班建议提前3h抵达</span></span></div>
+    <div class="tn">注：以上接送时间与地点以当日实际行程需求为准。</div>
+  </div>
+  <div class="note">若 D4（本宫）或 D5（川の古道）有章因17:00关门未补，可在今早顺路补盖——本宫/川の古道距白浜车程较远，务必优先在 D5/D6 一早补完；若天气或脚况有变导致 D7 扫章延误，核验可改到胜浦观光案内所或田边侧熊野古道馆（泷尻）办理。</div>
+</div>
+
+<h2 id="sec-4">四、41章收章清单（可勾选，自动保存）</h2>
+<div class="ck-progress-wrap">
+  <h3>进度：<span id="ckCount">0</span> / 41</h3>
+  <div class="ck-bar"><div id="ckBar"></div></div>
+  <div class="ck-list" id="ckList"></div>
+  <button id="ckReset" style="margin-top:12px;font-size:12px;padding:5px 14px;border:1px solid var(--line);background:var(--chip);border-radius:8px;cursor:pointer;">重置清单</button>
+</div>
+
+<h2 id="sec-5">五、领证流程备忘</h2>
+<div class="card">
+  <table>
+    <tr><th style="width:32%">事项</th><th>说明</th></tr>
+    <tr><td>押印帐</td><td>熊野古道中边路押印帐 ¥100。<b>本计划：D2 早上在熊野古道馆（泷尻）购买</b>，买完直接开始当天徒步；其他购买点：Kii-Tanabe Hotel（田边，¥150）/ 熊野本宫馆 / 新宫·胜浦观光案内所。<b>必须在盖第一个章前入手</b>。</td></tr>
+    <tr><td>认证窗口（四选一）</td><td>熊野古道馆（泷尻）· 熊野本宫馆 · 新宫市观光案内所（新宮市観光協会）· 那智胜浦观光案内所。本计划主选 <b>新宮市観光協会（D7，17:00前）</b>；若D7扫章延误，改到胜浦观光案内所或D8顺路在泷尻熊野古道馆核验。</td></tr>
+    <tr><td>完步证明</td><td>窗口工作人员逐章核验41个章后在押印帐末页盖「完步证明」印章。</td></tr>
+    <tr><td>完全踏破证明书</td><td>和歌山县发行，免费。可当场核验发放，或邮寄至和歌山县厅办理（押印帐会寄还）。</td></tr>
+    <tr><td>金贝壳</td><td>中边路踏破限定「金の貝殻」¥2,750，凭踏破押印帐购买。库存有限，D7在新宫窗口即买。</td></tr>
+    <tr><td>彩蛋（选做）</td><td>若还想继续：和歌山县内四线（高野七口19+纪伊路19+大边路13+中边路41）共92章可挑战"超"完全踏破证明书——适合下次再来。</td></tr>
+  </table>
+</div>
+
+<h2 id="sec-6">六、包车接送点总表（可单独打印给司机）</h2>
+<div class="card">
+  <table>
+    <tr><th style="width:11%">日期</th><th style="width:9%">时间</th><th style="width:24%">上车点</th><th style="width:24%">下车点</th><th>备注</th></tr>
+    <tr><td>D1 11/13</td><td>航班抵达</td><td>关西机场 KIX 到达大厅</td><td>—</td><td>以实际航班为准，航班变动请提前联系司机</td></tr>
+    <tr><td>D1 11/13</td><td>接机后</td><td>关西机场 KIX</td><td>紀州・白浜温泉 むさし</td><td>经阪和自动车道，约2.5–3h</td></tr>
+    <tr><td>D2 11/14</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>熊野古道馆（泷尻）</td><td>购买押印帐 ¥100 + 参观约60min</td></tr>
+    <tr><td>D2 11/14</td><td>09:35</td><td>熊野古道馆</td><td>鍛冶屋川口</td><td>当日徒步起点，司机可离开</td></tr>
+    <tr><td>D2 11/14</td><td>15:00</td><td>北郡越（徒步终点）</td><td>稲葉根王子</td><td>须提前约定，山路窄、无明确站牌</td></tr>
+    <tr><td>D2 11/14</td><td>16:00</td><td>稲葉根王子</td><td>紀州・白浜温泉 むさし</td><td>返回酒店，连住第二晚</td></tr>
+    <tr><td>D3 11/15</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>滝尻·熊野古道馆</td><td>当日徒步起点；大件行李随车直送近露</td></tr>
+    <tr><td>D3 11/15</td><td>18:00</td><td>近露王子（徒步终点）</td><td>SEN.RETREAT CHIKATSUYU</td><td>步行可到则免车，提前告知司机</td></tr>
+    <tr><td>D4 11/16</td><td>07:00</td><td>SEN.RETREAT CHIKATSUYU</td><td>継桜王子</td><td>当日徒步起点，全程最长日</td></tr>
+    <tr><td>D4 11/16</td><td>17:30</td><td>旧社地大斎原（本宫大社旁停车场）</td><td>渡瀬温泉 ホテルささゆり</td><td>行李由司机从近露直送</td></tr>
+    <tr><td>D5 11/17</td><td>08:00</td><td>渡瀬温泉 ホテルささゆり</td><td>湯峯温泉（湯峯王子）</td><td>盖章，约10min</td></tr>
+    <tr><td>D5 11/17</td><td>08:40</td><td>湯峯温泉</td><td>請川（小云取越登山口）</td><td>当日徒步起点</td></tr>
+    <tr><td>D5 11/17</td><td>15:00</td><td>小口（小云取越终点）</td><td>道の駅熊野川</td><td>川の古道押印所17:00关门，务必赶上</td></tr>
+    <tr><td>D5 11/17</td><td>16:30</td><td>道の駅熊野川</td><td>Satsuki Apartment（日足）</td><td>入住，次日近小口登山口</td></tr>
+    <tr><td>D6 11/18</td><td>08:00</td><td>Satsuki Apartment（日足）</td><td>小口登山口</td><td>大云取越起点，务必08:30前开走</td></tr>
+    <tr><td>D6 11/18</td><td>16:30</td><td>那智山（青岸渡寺前停车场）</td><td>大門坂（多富気王子）</td><td>下山后乘车，沿路盖章</td></tr>
+    <tr><td>D6 11/18</td><td>17:30</td><td>大門坂</td><td>市野々王子</td><td>盖章</td></tr>
+    <tr><td>D6 11/18</td><td>17:50</td><td>市野々王子</td><td>勝浦 補陀洛山寺・浜の宮王子</td><td>两章24h可盖</td></tr>
+    <tr><td>D6 11/18</td><td>18:30</td><td>勝浦</td><td>ホテル浦島</td><td>酒店需乘船/接驳，以酒店安排为准</td></tr>
+    <tr><td>D7 11/19</td><td>08:00</td><td>ホテル浦島</td><td>小狗子峠</td><td>胜浦港方向，乘车抵点即盖</td></tr>
+    <tr><td>D7 11/19</td><td>08:30</td><td>小狗子峠</td><td>三輪崎（反穿起点）</td><td>开始反穿翻越高野坂</td></tr>
+    <tr><td>D7 11/19</td><td>13:30</td><td>高野坂登り口（反穿终点）</td><td>阿須賀神社</td><td>午饭后开始新宫三社扫章</td></tr>
+    <tr><td>D7 11/19</td><td>15:10</td><td>神倉神社</td><td>新宮市観光協会</td><td>核验41章、领证、买金贝壳（17:00前）</td></tr>
+    <tr><td>D7 11/19</td><td>16:00</td><td>新宮市観光協会</td><td>白浜温泉 紀州半島</td><td>约2.5h，行程收官</td></tr>
+    <tr><td>D8 11/20</td><td>上午</td><td>白浜温泉 紀州半島</td><td>千叠敷・三段壁・圆月岛</td><td>自由活动，视天气与航班取舍</td></tr>
+    <tr><td>D8 11/20</td><td>按航班</td><td>白浜温泉 紀州半島</td><td>关西机场 KIX</td><td>约2.5–3h，国际航班建议提前3h抵达</td></tr>
+  </table>
+  <div class="note warn"><b>表中接送时间与地点以当日实际行程需求为准。</b>山区（北郡越、請川、小口、那智高原、高野坂登り口）手机信号极差，<b>无法临时电话叫车</b>。每天行程结束后与司机当面确认次日的上车时间、地点与备用方案；徒步终点时间受体力影响较大，建议与司机约定"预计时间 ±30min，提前30min到位等候"，并约定一个信号较好的备选汇合点。</div>
+</div>
+
+<h2 id="sec-7">七、实用备忘</h2>
+<div class="card">
+  <ul class="plain">
+    <li><b>季节与穿着</b>：11月中旬田边/海岸白天约15–17°C，山里（潮見峠、大云取越）体感可低至5°C。多层穿搭+防风外套；日落16:50左右，徒步日尽量按时刻表准时出发。</li>
+    <li><b>防水</b>：纪伊半岛多雨，Gore-Tex级雨衣+背包防雨罩必备；<b>押印帐最怕水</b>，用密封袋双层保护。</li>
+    <li><b>防起水泡</b>：五指袜+羊毛袜双层穿法，登山鞋提前磨合；大云取越、潮見峠的陡降对膝盖不友好，登山杖带上。</li>
+    <li><b>现金</b>：山区民宿、自动贩卖机、小商店多数不收卡，备足日元现金；包车追加费用（高速、停车、超时）也建议备现金结清。</li>
+    <li><b>盖章点开放性</b>：多数押印所在户外小盒（24h可盖）；需注意营业时间的是——<b>熊野本宮大社（小屋，17:00后无法押章，D4务必赶在17:00前）</b>、川の古道（道の駅熊野川游客中心，<b>17:00后无法押章，D5 15:30乘车赶去</b>）、高原熊野神社（休息亭）、速玉大社（社内商店，D7下午）、大门坂茶屋（多富気王子）。</li>
+    <li><b>野生动物</b>：山区有熊出没记录，佩熊铃、结伴或唱歌制造声响。</li>
+    <li><b>行李</b>：包车模式下大件行李全程随车，随身只背当日徒步物资（6–8kg）；跨住宿点移动时（D3近露→D4渡瀬、D5日足→D6勝浦），前一晚交给司机直送下一家即可。</li>
+  </ul>
+</div>
+
+
+</div>
+
+<script>
+(function(){
+  var stamps = [
+    "稲葉根王子","北郡越","潮見峠","滝尻王子","不寝王子","高原熊野神社","大門王子","十丈王子","大坂本王子",
+    "牛馬童子","近露王子","継桜王子","秀衡桜","蛇形地蔵","湯川王子","猪鼻王子","発心門王子","水呑王子",
+    "伏拝王子","祓殿王子","熊野本宮大社","旧社地大斎原","湯峯王子","請川","石堂茶屋跡","小和瀬渡し場跡",
+    "川の熊野古道","阿須賀神社","熊野速玉大社","神倉神社","小口（大雲取越入口）","地蔵茶屋跡","熊野那智大社",
+    "青岸渡寺","飛瀧神社","多富気王子","市野々王子","補陀洛山寺","浜の宮王子","小狗子峠","高野坂登り口"
+  ];
+  var dayOf = {
+    1:"D2",2:"D2",3:"D2",
+    4:"D3",5:"D3",6:"D3",7:"D3",8:"D3",9:"D3",10:"D3",11:"D3",
+    12:"D4",13:"D4",14:"D4",15:"D4",16:"D4",17:"D4",18:"D4",19:"D4",20:"D4",21:"D4",22:"D4",
+    23:"D5",24:"D5",25:"D5",26:"D5",27:"D5",31:"D5",
+    32:"D6",33:"D6",34:"D6",35:"D6",36:"D6",37:"D6",38:"D6",39:"D6",
+    28:"D7",29:"D7",30:"D7",40:"D7",41:"D7"
+  };
+  var key="kumano_nakahechi_41_v1";
+  var saved={};
+  try{saved=JSON.parse(localStorage.getItem(key)||"{}");}catch(e){}
+  var list=document.getElementById("ckList");
+  stamps.forEach(function(name,i){
+    var n=i+1;
+    var item=document.createElement("div");
+    item.className="ck-item"+(saved[n]?" done":"");
+    var cb=document.createElement("input");cb.type="checkbox";cb.id="ck"+n;cb.checked=!!saved[n];
+    var lb=document.createElement("label");lb.htmlFor="ck"+n;
+    lb.innerHTML='<span class="num">'+n+'</span>'+name+' <span style="color:#999;font-size:11px">'+dayOf[n]+'</span>';
+    cb.addEventListener("change",function(){
+      saved[n]=cb.checked;
+      item.classList.toggle("done",cb.checked);
+      localStorage.setItem(key,JSON.stringify(saved));
+      update();
+    });
+    item.appendChild(cb);item.appendChild(lb);list.appendChild(item);
+  });
+  function update(){
+    var c=0;for(var k in saved){if(saved[k])c++;}
+    document.getElementById("ckCount").textContent=c;
+    document.getElementById("ckBar").style.width=(c/41*100)+"%";
+  }
+  update();
+  document.getElementById("ckReset").addEventListener("click",function(){
+    if(confirm("确定清空全部勾选？")){
+      saved={};localStorage.removeItem(key);
+      list.querySelectorAll("input").forEach(function(cb){cb.checked=false;});
+      list.querySelectorAll(".ck-item").forEach(function(el){el.classList.remove("done");});
+      update();
+    }
+  });
+})();
+</script>
+
+<button class="totop" id="toTop" title="回到顶部">↑</button>
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  var targets = links.map(function(a){ return document.getElementById(a.getAttribute('href').slice(1)); });
+  var nav = document.getElementById('topnav');
+  var toTop = document.getElementById('toTop');
+  var lockUntil = 0;
+  function setActive(i){
+    links.forEach(function(a, k){ a.classList.toggle('active', k === i); });
+    var act = links[i];
+    if (act && nav){
+      var r = act.getBoundingClientRect(), nr = nav.getBoundingClientRect();
+      if (r.left < nr.left + 8 || r.right > nr.right - 8){
+        nav.querySelector('.nav-inner').scrollLeft += (r.left - nr.left) - 40;
+      }
+    }
+  }
+  function onScroll(){
+    if (Date.now() < lockUntil) return;
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var cur = 0;
+    for (var i = 0; i < targets.length; i++){
+      var t = targets[i];
+      if (!t) continue;
+      if (t.getBoundingClientRect().top + y - 90 <= y) cur = i;
+    }
+    setActive(cur);
+    toTop.classList.toggle('show', y > 500);
+  }
+  links.forEach(function(a, i){
+    a.addEventListener('click', function(){
+      setActive(i);
+      lockUntil = Date.now() + 700;   /* 平滑滚动期间不重算高亮 */
+    });
+  });
+  toTop.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
