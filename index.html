@@ -65,6 +65,7 @@
   th{background:#efe9dd;padding:8px 10px;text-align:left;font-weight:600;white-space:nowrap;}
   td{border:1px solid var(--line);padding:7px 10px;vertical-align:top;}
   tr:nth-child(even) td{background:#fbf9f4;}
+  .table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .ck-progress-wrap{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:16px;}
   .ck-bar{height:12px;background:#eee7db;border-radius:99px;overflow:hidden;margin:8px 0 4px;}
   .ck-bar>div{height:100%;background:linear-gradient(90deg,var(--red),var(--gold));width:0%;transition:width .3s;}
@@ -98,7 +99,11 @@
        transition:opacity .2s;box-shadow:0 3px 12px rgba(0,0,0,.18);}
   .totop.show{opacity:.92;pointer-events:auto;}
   @media(max-width:640px){.nav a{font-size:12px;padding:4px 8px;}}
-  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}.hero{padding:26px 20px;}}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr);}.hero{padding:26px 20px;}
+    .table-wrap table{min-width:680px;width:100%;}
+    .table-wrap th,.table-wrap td{width:auto !important;font-size:13px;padding:7px 8px;}
+    th,td{font-size:13px;padding:7px 8px;}
+  }
   @media print{body{background:#fff;}.card,.ck-progress-wrap{break-inside:avoid;}}
 </style>
 </head>
@@ -430,35 +435,37 @@
 
 <h2 id="sec-6">六、包车接送点总表（可单独打印给司机）</h2>
 <div class="card">
-  <table>
-    <tr><th style="width:11%">日期</th><th style="width:9%">时间</th><th style="width:24%">上车点</th><th style="width:24%">下车点</th><th>备注</th></tr>
-    <tr><td>D1 11/13</td><td>航班抵达</td><td>关西机场 KIX 到达大厅</td><td>—</td><td>以实际航班为准，航班变动请提前联系司机</td></tr>
-    <tr><td>D1 11/13</td><td>接机后</td><td>关西机场 KIX</td><td>紀州・白浜温泉 むさし</td><td>经阪和自动车道，约2.5–3h</td></tr>
-    <tr><td>D2 11/14</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>熊野古道馆（泷尻）</td><td>购买押印帐 100日元 + 参观约60min</td></tr>
-    <tr><td>D2 11/14</td><td>09:35</td><td>熊野古道馆</td><td>鍛冶屋川口</td><td>当日徒步起点，司机可离开</td></tr>
-    <tr><td>D2 11/14</td><td>15:00</td><td>北郡越（徒步终点）</td><td>稲葉根王子</td><td>须提前约定，山路窄、无明确站牌</td></tr>
-    <tr><td>D2 11/14</td><td>16:00</td><td>稲葉根王子</td><td>紀州・白浜温泉 むさし</td><td>返回酒店，连住第二晚</td></tr>
-    <tr><td>D3 11/15</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>滝尻·熊野古道馆</td><td>当日徒步起点；大件行李随车直送近露</td></tr>
-    <tr><td>D3 11/15</td><td>18:00</td><td>近露王子（徒步终点）</td><td>SEN.RETREAT CHIKATSUYU</td><td>步行可到则免车，提前告知司机</td></tr>
-    <tr><td>D4 11/16</td><td>07:00</td><td>SEN.RETREAT CHIKATSUYU</td><td>継桜王子</td><td>当日徒步起点，全程最长日</td></tr>
-    <tr><td>D4 11/16</td><td>17:30</td><td>旧社地大斎原（本宫大社旁停车场）</td><td>渡瀬温泉 ホテルささゆり</td><td>行李由司机从近露直送</td></tr>
-    <tr><td>D5 11/17</td><td>08:00</td><td>渡瀬温泉 ホテルささゆり</td><td>湯峯温泉（湯峯王子）</td><td>盖章，约10min</td></tr>
-    <tr><td>D5 11/17</td><td>08:40</td><td>湯峯温泉</td><td>請川（小云取越登山口）</td><td>当日徒步起点</td></tr>
-    <tr><td>D5 11/17</td><td>15:00</td><td>小口（小云取越终点）</td><td>道の駅熊野川</td><td>川の古道押印所17:00关门，务必赶上</td></tr>
-    <tr><td>D5 11/17</td><td>16:30</td><td>道の駅熊野川</td><td>Satsuki Apartment（日足）</td><td>入住，次日近小口登山口</td></tr>
-    <tr><td>D6 11/18</td><td>08:00</td><td>Satsuki Apartment（日足）</td><td>小口登山口</td><td>大云取越起点，务必08:30前开走</td></tr>
-    <tr><td>D6 11/18</td><td>16:30</td><td>那智山（青岸渡寺前停车场）</td><td>大門坂（多富気王子）</td><td>下山后乘车，沿路盖章</td></tr>
-    <tr><td>D6 11/18</td><td>17:30</td><td>大門坂</td><td>市野々王子</td><td>盖章</td></tr>
-    <tr><td>D6 11/18</td><td>17:50</td><td>市野々王子</td><td>勝浦 補陀洛山寺・浜の宮王子</td><td>两章24h可盖</td></tr>
-    <tr><td>D6 11/18</td><td>18:30</td><td>勝浦</td><td>ホテル浦島</td><td>酒店需乘船/接驳，以酒店安排为准</td></tr>
-    <tr><td>D7 11/19</td><td>08:00</td><td>ホテル浦島</td><td>小狗子峠</td><td>胜浦港方向，乘车抵点即盖</td></tr>
-    <tr><td>D7 11/19</td><td>08:30</td><td>小狗子峠</td><td>三輪崎（反穿起点）</td><td>开始反穿翻越高野坂</td></tr>
-    <tr><td>D7 11/19</td><td>13:30</td><td>高野坂登り口（反穿终点）</td><td>阿須賀神社</td><td>午饭后开始新宫三社扫章</td></tr>
-    <tr><td>D7 11/19</td><td>15:10</td><td>神倉神社</td><td>新宮市観光協会</td><td>核验41章、领证、买金贝壳（17:00前）</td></tr>
-    <tr><td>D7 11/19</td><td>16:00</td><td>新宮市観光協会</td><td>白浜温泉 紀州半島</td><td>约2.5h，行程收官</td></tr>
-    <tr><td>D8 11/20</td><td>上午</td><td>白浜温泉 紀州半島</td><td>千叠敷・三段壁・圆月岛</td><td>自由活动，视天气与航班取舍</td></tr>
-    <tr><td>D8 11/20</td><td>按航班</td><td>白浜温泉 紀州半島</td><td>关西机场 KIX</td><td>约2.5–3h，国际航班建议提前3h抵达</td></tr>
-  </table>
+  <div class="table-wrap">
+    <table>
+      <tr><th style="width:11%">日期</th><th style="width:9%">时间</th><th style="width:24%">上车点</th><th style="width:24%">下车点</th><th>备注</th></tr>
+      <tr><td>D1 11/13</td><td>航班抵达</td><td>关西机场 KIX 到达大厅</td><td>—</td><td>以实际航班为准，航班变动请提前联系司机</td></tr>
+      <tr><td>D1 11/13</td><td>接机后</td><td>关西机场 KIX</td><td>紀州・白浜温泉 むさし</td><td>经阪和自动车道，约2.5–3h</td></tr>
+      <tr><td>D2 11/14</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>熊野古道馆（泷尻）</td><td>购买押印帐 100日元 + 参观约60min</td></tr>
+      <tr><td>D2 11/14</td><td>09:35</td><td>熊野古道馆</td><td>鍛冶屋川口</td><td>当日徒步起点，司机可离开</td></tr>
+      <tr><td>D2 11/14</td><td>15:00</td><td>北郡越（徒步终点）</td><td>稲葉根王子</td><td>须提前约定，山路窄、无明确站牌</td></tr>
+      <tr><td>D2 11/14</td><td>16:00</td><td>稲葉根王子</td><td>紀州・白浜温泉 むさし</td><td>返回酒店，连住第二晚</td></tr>
+      <tr><td>D3 11/15</td><td>08:30</td><td>紀州・白浜温泉 むさし</td><td>滝尻·熊野古道馆</td><td>当日徒步起点；大件行李随车直送近露</td></tr>
+      <tr><td>D3 11/15</td><td>18:00</td><td>近露王子（徒步终点）</td><td>SEN.RETREAT CHIKATSUYU</td><td>步行可到则免车，提前告知司机</td></tr>
+      <tr><td>D4 11/16</td><td>07:00</td><td>SEN.RETREAT CHIKATSUYU</td><td>継桜王子</td><td>当日徒步起点，全程最长日</td></tr>
+      <tr><td>D4 11/16</td><td>17:30</td><td>旧社地大斎原（本宫大社旁停车场）</td><td>渡瀬温泉 ホテルささゆり</td><td>行李由司机从近露直送</td></tr>
+      <tr><td>D5 11/17</td><td>08:00</td><td>渡瀬温泉 ホテルささゆり</td><td>湯峯温泉（湯峯王子）</td><td>盖章，约10min</td></tr>
+      <tr><td>D5 11/17</td><td>08:40</td><td>湯峯温泉</td><td>請川（小云取越登山口）</td><td>当日徒步起点</td></tr>
+      <tr><td>D5 11/17</td><td>15:00</td><td>小口（小云取越终点）</td><td>道の駅熊野川</td><td>川の古道押印所17:00关门，务必赶上</td></tr>
+      <tr><td>D5 11/17</td><td>16:30</td><td>道の駅熊野川</td><td>Satsuki Apartment（日足）</td><td>入住，次日近小口登山口</td></tr>
+      <tr><td>D6 11/18</td><td>08:00</td><td>Satsuki Apartment（日足）</td><td>小口登山口</td><td>大云取越起点，务必08:30前开走</td></tr>
+      <tr><td>D6 11/18</td><td>16:30</td><td>那智山（青岸渡寺前停车场）</td><td>大門坂（多富気王子）</td><td>下山后乘车，沿路盖章</td></tr>
+      <tr><td>D6 11/18</td><td>17:30</td><td>大門坂</td><td>市野々王子</td><td>盖章</td></tr>
+      <tr><td>D6 11/18</td><td>17:50</td><td>市野々王子</td><td>勝浦 補陀洛山寺・浜の宮王子</td><td>两章24h可盖</td></tr>
+      <tr><td>D6 11/18</td><td>18:30</td><td>勝浦</td><td>ホテル浦島</td><td>酒店需乘船/接驳，以酒店安排为准</td></tr>
+      <tr><td>D7 11/19</td><td>08:00</td><td>ホテル浦島</td><td>小狗子峠</td><td>胜浦港方向，乘车抵点即盖</td></tr>
+      <tr><td>D7 11/19</td><td>08:30</td><td>小狗子峠</td><td>三輪崎（反穿起点）</td><td>开始反穿翻越高野坂</td></tr>
+      <tr><td>D7 11/19</td><td>13:30</td><td>高野坂登り口（反穿终点）</td><td>阿須賀神社</td><td>午饭后开始新宫三社扫章</td></tr>
+      <tr><td>D7 11/19</td><td>15:10</td><td>神倉神社</td><td>新宮市観光協会</td><td>核验41章、领证、买金贝壳（17:00前）</td></tr>
+      <tr><td>D7 11/19</td><td>16:00</td><td>新宮市観光協会</td><td>白浜温泉 紀州半島</td><td>约2.5h，行程收官</td></tr>
+      <tr><td>D8 11/20</td><td>上午</td><td>白浜温泉 紀州半島</td><td>千叠敷・三段壁・圆月岛</td><td>自由活动，视天气与航班取舍</td></tr>
+      <tr><td>D8 11/20</td><td>按航班</td><td>白浜温泉 紀州半島</td><td>关西机场 KIX</td><td>约2.5–3h，国际航班建议提前3h抵达</td></tr>
+    </table>
+  </div>
   <div class="note warn"><b>表中接送时间与地点以当日实际行程需求为准。</b>山区（北郡越、請川、小口、那智高原、高野坂登り口）手机信号极差，<b>无法临时电话叫车</b>。每天行程结束后与司机当面确认次日的上车时间、地点与备用方案；徒步终点时间受体力影响较大，建议与司机约定"预计时间 ±30min，提前30min到位等候"，并约定一个信号较好的备选汇合点。</div>
 </div>
 
